@@ -738,39 +738,76 @@ function updatePalletColor(index) {
     if(btn) btn.className = `pallet-btn status-${userResponses[index].status}`;
 }
 
-// 6. Submit Test
+// 6. Submit Test (With Detailed Analysis & Skip Feature)
 function submitTest() {
     clearInterval(mockTimerInterval);
     let score = 0, correct = 0, wrong = 0, unattempted = 0;
+    
+    // एनालिसिस रिपोर्ट का ढांचा
+    let reviewHTML = '<h3 style="margin-top:30px; color:var(--primary); text-align:left; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">Detailed Analysis:</h3><div style="text-align:left; max-height:400px; overflow-y:auto; padding-right:10px; margin-top:15px;">';
 
     userResponses.forEach((response, i) => {
+        let q = mockQuestions[i];
+        let statusColor = "";
+        let statusText = "";
+        
         if (response.selectedOption !== null) {
-            if (response.selectedOption === mockQuestions[i].correct) {
+            if (response.selectedOption === q.correct) {
                 score += 4; correct++;
+                statusColor = "#10b981"; // हरा (सही)
+                statusText = q.options[response.selectedOption];
             } else {
                 score -= 1; wrong++;
+                statusColor = "#ef4444"; // लाल (गलत)
+                statusText = q.options[response.selectedOption];
             }
         } else {
             unattempted++;
+            statusColor = "#f59e0b"; // ऑरेंज/पीला (Skipped के लिए)
+            statusText = "Skipped (छोड़ दिया)";
         }
-    });
 
+        // हर सवाल का रिव्यू बॉक्स
+        reviewHTML += `
+        <div style="background: rgba(0,0,0,0.2); padding: 15px; margin-bottom: 15px; border-left: 4px solid ${statusColor}; border-radius: 6px;">
+            <p style="font-weight:600; margin-bottom:8px; font-size:16px;">Q${i+1}: ${q.text}</p>
+            <p style="font-size:14px; color:#aaa; margin-bottom:4px;">Your Answer: <span style="color:${statusColor}; font-weight:600;">${statusText}</span></p>
+            <p style="font-size:14px; color:#10b981;">Correct Answer: <b>${q.options[q.correct]}</b></p>
+        </div>`;
+    });
+    
+    reviewHTML += '</div>';
+
+    // UI अपडेट करना
     document.getElementById('test-engine').style.display = 'none';
     document.getElementById('sliding-pallet').classList.remove('open');
     document.getElementById('test-result').style.display = 'block';
     
-    // Total marks calculation (Question count * 4)
     let totalMarks = mockQuestions.length * 4;
-    
     document.getElementById('final-score').innerText = `${score} / ${totalMarks}`;
+    
+    // ऊपर का समरी बॉक्स
     document.getElementById('score-analysis').innerHTML = `
-        <span style="color:#10b981;">Correct: ${correct} (+${correct*4})</span> | 
-        <span style="color:#ef4444;">Wrong: ${wrong} (-${wrong})</span> | 
-        <span style="color:#4e5d78;">Unattempted: ${unattempted}</span>
+        <span style="color:#10b981; font-weight:bold;">Correct: ${correct} (+${correct*4})</span> | 
+        <span style="color:#ef4444; font-weight:bold;">Wrong: ${wrong} (-${wrong})</span> | 
+        <span style="color:#f59e0b; font-weight:bold;">Skipped: ${unattempted}</span>
     `;
+    
+    // पुराने एनालिसिस को हटाकर नया जोड़ना
+    let resultDiv = document.getElementById('test-result');
+    let oldAnalysis = document.getElementById('detailed-analysis');
+    if(oldAnalysis) oldAnalysis.remove();
+    
+    let analysisDiv = document.createElement('div');
+    analysisDiv.id = 'detailed-analysis';
+    analysisDiv.innerHTML = reviewHTML;
+    resultDiv.insertBefore(analysisDiv, resultDiv.querySelector('button'));
 }
 
-
+    
+    
+ 
+    
       function updateDailyStrike() {
     const today = new Date().toDateString();
     
