@@ -93,7 +93,148 @@ const testsDatabase = {
             image: null,
             options: ["Anticodon loop", "TψC loop", "DHU loop", "Variable arm"],
             correct: 1
+        },
+               {
+            subject: "Biology",
+            text: "Assertion (A): Eukaryotes में Transcription और Translation अलग-अलग कम्पार्टमेंट्स में होते हैं। \nReason (R): Eukaryotic mRNA को translation से पहले processing (splicing, capping, tailing) की आवश्यकता होती है।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Statement I: Eukaryotes में structural gene 'monocistronic' होता है। \nStatement II: Monocistronic genes में interrupted coding sequences (introns) पाए जाते हैं।",
+            image: null,
+            options: ["दोनों Statements सही हैं", "दोनों Statements गलत हैं", "Statement I सही है, Statement II गलत है", "Statement I गलत है, Statement II सही है"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Assertion (A): DNA replication अर्ध-संरक्षी (semi-conservative) होता है। \nReason (R): Meselson और Stahl ने ^15NH4Cl का उपयोग करके इसे सिद्ध किया था।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 1
+        },
+        {
+            subject: "Biology",
+            text: "गलत मिलान (Incorrect Match) का चयन करें:",
+            image: null,
+            options: ["Alec Jeffreys - DNA fingerprinting", "Francois Jacob - Lac operon", "Matthew Meselson - Transforming principle", "Taylor - Vicia faba"],
+            correct: 2
+        },
+        {
+            subject: "Biology",
+            text: "दिए गए कथनों को पढ़ें: \n(i) RNA अस्थिर (unstable) है और तेज़ी से mutate करता है। \n(ii) RNA उत्प्रेरक (catalytic) की तरह काम कर सकता है। \n(iii) आनुवंशिक जानकारी के 'भंडारण' के लिए DNA बेहतर है। \n(iv) आनुवंशिक जानकारी के 'हस्तांतरण' के लिए RNA बेहतर है। \nइनमें से कितने कथन सत्य हैं?",
+            image: null,
+            options: ["केवल एक", "केवल दो", "केवल तीन", "चारों कथन सत्य हैं"],
+            correct: 3
+        },
+        {
+            subject: "Biology",
+            text: "Assertion (A): जेनेटिक कोड अपह्रासित (Degenerate) होता है। \nReason (R): कुछ अमीनो एसिड एक से अधिक कोडॉन द्वारा कोडित होते हैं।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Statement I: Lac operon एक repressible operon है। \nStatement II: लैक्टोज (Lactose) की उपस्थिति में repressor protein निष्क्रिय (inactive) हो जाता है।",
+            image: null,
+            options: ["दोनों Statements सही हैं", "दोनों Statements गलत हैं", "Statement I सही है, Statement II गलत है", "Statement I गलत है, Statement II सही है"],
+            correct: 3
+        },
+        {
+            subject: "Biology",
+            text: "DNA फिंगरप्रिंटिंग में चरणों का सही क्रम (Correct Sequence) क्या है? \n(A) Blotting (B) Autoradiography (C) Gel electrophoresis (D) Digestion of DNA by Restriction Endonuclease",
+            image: null,
+            options: ["D → C → A → B", "C → D → A → B", "D → A → C → B", "A → C → D → B"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Assertion (A): Heterochromatin अनुलेखन (transcription) की दृष्टि से निष्क्रिय होता है। \nReason (R): Heterochromatin ढीला (loosely packed) होता है और हल्का स्टेन (light stain) लेता है।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 2
+        },
+        {
+            subject: "Biology",
+            text: "Statement I: DNA Polymerase केवल 5'→3' दिशा में polymerization को उत्प्रेरित करता है। \nStatement II: 3'→5' ध्रुवता (polarity) वाले टेम्पलेट स्ट्रैंड पर replication सतत (continuous) होता है।",
+            image: null,
+            options: ["दोनों Statements सही हैं", "दोनों Statements गलत हैं", "Statement I सही है, Statement II गलत है", "Statement I गलत है, Statement II सही है"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Assertion (A): AUG कोडॉन के दोहरे कार्य (dual functions) होते हैं। \nReason (R): यह Methionine के लिए कोड करता है और initiator codon के रूप में भी कार्य करता है।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Eukaryotes में RNA polymerases के संबंध में सही कथन पहचानें:",
+            image: null,
+            options: ["RNA Pol I, tRNA को transcribe करता है", "RNA Pol II, hnRNA को transcribe करता है", "RNA Pol III, rRNA को transcribe करता है", "दिए गए सभी कथन सही हैं"],
+            correct: 1
+        },
+        {
+            subject: "Biology",
+            text: "Statement I: UTRs (Untranslated regions) 5' सिरे (start codon से पहले) और 3' सिरे (stop codon के बाद) दोनों पर मौजूद होते हैं। \nStatement II: कुशल अनुवादन (efficient translation) प्रक्रिया के लिए UTRs आवश्यक हैं।",
+            image: null,
+            options: ["दोनों Statements सही हैं", "दोनों Statements गलत हैं", "Statement I सही है, Statement II गलत है", "Statement I गलत है, Statement II सही है"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Assertion (A): Template strand में क्षारों का क्रम (sequence of bases), RNA में क्षारों के क्रम को निर्धारित करता है। \nReason (R): Transcription की प्रक्रिया पूरकता के सिद्धांत (principle of complementarity) द्वारा नियंत्रित होती है।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "DNA पैकेजिंग के संबंध में कथन पढ़ें: \n(i) Histone octamer धनात्मक आवेशित (positively charged) होता है। \n(ii) एक Nucleosome में DNA हेलिक्स के लगभग 200 bp होते हैं। \n(iii) उच्च स्तर पर पैकेजिंग के लिए NHC (Non-histone chromosomal) प्रोटीन की आवश्यकता होती है। \nइनमें से कितने कथन सत्य हैं?",
+            image: null,
+            options: ["एक भी नहीं", "केवल एक", "केवल दो", "तीनों कथन सत्य हैं"],
+            correct: 3
+        },
+        {
+            subject: "Biology",
+            text: "Assertion (A): VNTR अनुक्रमों में म्यूटेशन का फेनोटाइप पर कोई तत्काल प्रभाव नहीं पड़ता है। \nReason (R): VNTRs नॉन-कोडिंग दोहराए जाने वाले DNA (repetitive DNA sequences) से संबंधित हैं।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Statement I: अधिकांश ओपेरॉन में Operator region, Promoter region के ठीक बगल में स्थित होता है। \nStatement II: प्रत्येक ओपेरॉन का अपना विशिष्ट (specific) ऑपरेटर और विशिष्ट रिप्रेसर (repressor) होता है।",
+            image: null,
+            options: ["दोनों Statements सही हैं", "दोनों Statements गलत हैं", "Statement I सही है, Statement II गलत है", "Statement I गलत है, Statement II सही है"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "Assertion (A): tRNA को एक अडैप्टर अणु (adapter molecule) भी कहा जाता है। \nReason (R): यह एक तरफ कोडॉन को पढ़ता है और दूसरी तरफ विशिष्ट अमीनो एसिड से जुड़ता है।",
+            image: null,
+            options: ["दोनों A और R सत्य हैं, और R, A की सही व्याख्या है", "दोनों A और R सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है लेकिन R असत्य है", "दोनों A और R असत्य हैं"],
+            correct: 0
+        },
+        {
+            subject: "Biology",
+            text: "DNA डबल हेलिक्स की मुख्य विशेषताओं के बारे में कौन सा कथन गलत (INCORRECT) है?",
+            image: null,
+            options: ["बैकबोन शुगर-फॉस्फेट से बनी होती है", "दोनों श्रृंखलाओं (chains) में समानांतर ध्रुवता (parallel polarity) होती है", "एडेनिन (Adenine) थाइमिन के साथ दो हाइड्रोजन बांड बनाता है", "हेलिक्स का पिच (pitch) 3.4 nm होता है"],
+            correct: 1
+        },
+        {
+            subject: "Biology",
+            text: "Statement I: ट्रांसलेशन (Translation) के दौरान, Ribosome mRNA के साथ-साथ कोडॉन दर कोडॉन आगे बढ़ता है। \nStatement II: अमीनो एसिड्स पेप्टाइड बॉन्ड द्वारा जुड़कर पॉलीपेप्टाइड श्रृंखला बनाते हैं, जिसे Ribosome का 23S rRNA उत्प्रेरित (catalyze) करता है।",
+            image: null,
+            options: ["दोनों Statements सही हैं", "दोनों Statements गलत हैं", "Statement I सही है, Statement II गलत है", "Statement I गलत है, Statement II सही है"],
+            correct: 0
         }
+
         
     ]
 };
