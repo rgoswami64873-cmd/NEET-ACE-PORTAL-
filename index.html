@@ -30,13 +30,13 @@
             --card-glow-border: 1px solid rgba(0, 255, 204, 0.15);
         }
 
-              /* 🆕 Light Mode Variables */
+        /* ☀️ Light Mode Variables */
         body.light-mode {
             --bg-dark: #f0f4f8;
             --card-bg: #ffffff;
             --text-main: #1e293b;
             --text-muted: #64748b;
-            --primary: #059669; /* डार्क ग्रीन ताकि सफ़ेद पर चमके */
+            --primary: #059669; 
             --secondary: #0284c7;
             --card-glow-border: 1px solid rgba(0, 0, 0, 0.1);
             --glow-active: 0 4px 15px rgba(5, 150, 105, 0.2);
@@ -50,7 +50,6 @@
         body.light-mode .time-block { background: #f1f5f9; color: #1e293b; border-color: rgba(0,0,0,0.1); }
         body.light-mode .time-block span { color: #1e293b; }
 
-        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; scroll-behavior: smooth; }
 
@@ -59,7 +58,7 @@
         .circle-2 { width: 500px; height: 500px; background: var(--secondary); bottom: -50px; right: -50px; }
 
         /* ==========================================
-           2. CSS: NAVBAR & MENUS (ऊपर का नेविगेशन)
+           2. CSS: NAVBAR & MENUS
            ========================================== */
         nav { background: rgba(21, 28, 44, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.05); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
         .logo { font-size: 24px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 15px; }
@@ -100,13 +99,8 @@
         .time-block span { display: block; font-size: 36px; font-weight: 700; color: #fff; }
 
         .subjects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 25px; }
-        .subject-card { padding: 20px; border-radius: 12px; text-align: center; border: 1px solid transparent; background: rgba(255,255,255,0.02); }
-        .subject-card i { font-size: 32px; margin-bottom: 12px; }
-        .physics i { color: var(--physics-color); }
-        .chemistry i { color: var(--chemistry-color); }
-        .biology i { color: var(--biology-color); }
-
-        /* Goals Section */
+        .subject-card { padding: 20px; border-radius: 12px; text-align: center; border: 1px solid transparent; background: rgba(255,255,255,0.02); transition: 0.3s; }
+        
         .checklist-title { font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
         .planner-input-row { display: flex; gap: 10px; margin-bottom: 20px; }
         .planner-input-row input { flex-grow: 1; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); padding: 10px; border-radius: 8px; color: #fff; outline: none; }
@@ -118,7 +112,7 @@
         .task-text { outline: none; width: 100%; }
         .delete-btn { background: none; border: none; color: var(--physics-color); cursor: pointer; }
 
-    /* ==========================================
+        /* ==========================================
            4. CSS: MOCK TEST ENGINE & PALLET
            ========================================== */
         .question-area { background: var(--card-bg); padding: 25px; border-radius: 12px; border: var(--card-glow-border); min-height: 400px; display: flex; flex-direction: column; width: 100%; margin-top: 20px; }
@@ -162,7 +156,6 @@
         <a onclick="switchTab('focus-tab', this)"><i class="fa-solid fa-stopwatch"></i> Focus Hub</a>
         <a onclick="switchTab('notes-tab', this)"><i class="fa-solid fa-book-open"></i> Notes</a>
         <a onclick="switchTab('settings-tab', this)"><i class="fa-solid fa-gear"></i> Settings</a>
-
     </div>
 
     <!-- ==========================================
@@ -206,10 +199,39 @@
                     </div>
                 </div>
 
+                <!-- ==========================================
+                     SUBJECTS GRID (WITH PROPER BUTTONS)
+                     ========================================== -->
                 <div class="subjects-grid">
-                    <div class="subject-card biology"><i class="fa-solid fa-dna"></i><h3>Biology</h3><p>Botany & Zoology</p></div>
-                    <div class="subject-card physics"><i class="fa-solid fa-magnet"></i><h3>Physics</h3><p>Concepts & Numericals</p></div>
-                    <div class="subject-card chemistry"><i class="fa-solid fa-flask"></i><h3>Chemistry</h3><p>Phy, Org & Inorg</p></div>
+                    <!-- Biology Card -->
+                    <div class="subject-card biology" style="position: relative; padding-bottom: 70px; border: 1px solid var(--biology-color); box-shadow: var(--glow-active);">
+                        <i class="fa-solid fa-dna" style="font-size: 40px; margin-bottom: 15px; color: var(--biology-color);"></i>
+                        <h3 style="font-size: 22px;">Biology</h3>
+                        <p style="margin-bottom: 15px; color: var(--text-muted);">Chapter-wise Practice</p>
+                        <button class="btn" onclick="openSubject('biology')" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 80%; background: var(--biology-color); color: #000; box-shadow: 0 0 10px rgba(0,255,204,0.4);">
+                            <i class="fa-solid fa-folder-open"></i> View Chapters
+                        </button>
+                    </div>
+
+                    <!-- Physics Card -->
+                    <div class="subject-card physics" style="position: relative; padding-bottom: 70px;">
+                        <i class="fa-solid fa-magnet" style="font-size: 40px; margin-bottom: 15px; color: var(--physics-color);"></i>
+                        <h3 style="font-size: 22px;">Physics</h3>
+                        <p style="margin-bottom: 15px; color: var(--text-muted);">Concepts & Numericals</p>
+                        <button class="btn" onclick="alert('Physics chapters coming soon!')" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 80%; background: transparent; border: 1px solid var(--physics-color); color: var(--physics-color);">
+                            <i class="fa-solid fa-lock"></i> Locked
+                        </button>
+                    </div>
+
+                    <!-- Chemistry Card -->
+                    <div class="subject-card chemistry" style="position: relative; padding-bottom: 70px;">
+                        <i class="fa-solid fa-flask" style="font-size: 40px; margin-bottom: 15px; color: var(--chemistry-color);"></i>
+                        <h3 style="font-size: 22px;">Chemistry</h3>
+                        <p style="margin-bottom: 15px; color: var(--text-muted);">Phy, Org & Inorg</p>
+                        <button class="btn" onclick="alert('Chemistry chapters coming soon!')" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); width: 80%; background: transparent; border: 1px solid var(--chemistry-color); color: var(--chemistry-color);">
+                            <i class="fa-solid fa-lock"></i> Locked
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -222,6 +244,57 @@
                         <button class="btn" onclick="addGoal()"><i class="fa-solid fa-plus"></i></button>
                     </div>
                     <div class="checklist-container" id="goal-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             TAB 1.5: CHAPTER-WISE PRACTICE (NEW)
+             ========================================== -->
+        <div id="chapter-list-screen" class="tab-content" style="display: none; grid-template-columns: 1fr;">
+            
+            <div class="card page-header" style="padding: 20px; position: relative;">
+                <button class="btn" onclick="backToDashboard()" style="position: absolute; left: 20px; top: 20px; background: rgba(255,255,255,0.1); color: var(--text-main); border: 1px solid rgba(255,255,255,0.2);">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <i class="fa-solid fa-dna" style="color: var(--biology-color); font-size: 40px; margin-bottom: 15px;"></i>
+                <h2 style="color: var(--primary);">Biology Chapter Practice</h2>
+                <p style="color: var(--text-muted);">Select a chapter to start focused practice.</p>
+            </div>
+
+            <!-- Chapters Grid (Reusing Mock Test Card Design) -->
+ <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                
+                <div class="card" style="border-left: 4px solid var(--biology-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <h3>1. Sexual Reproduction in Flowering Plants</h3>
+                        <span class="tag b">Class 12</span>
+                    </div>
+                    <button class="btn" style="margin-top: 15px;" onclick="startChapterPractice('bio_ch1')"><i class="fa-solid fa-play"></i> Practice Now</button>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--biology-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <h3>2. Human Reproduction</h3>
+                        <span class="tag b">Class 12</span>
+                    </div>
+                    <button class="btn" style="margin-top: 15px;" onclick="startChapterPractice('bio_ch2')"><i class="fa-solid fa-play"></i> Practice Now</button>
+                </div>
+
+                <div class="card" style="border-left: 4px solid var(--biology-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <h3>3. Reproductive Health</h3>
+                        <span class="tag b">Class 12</span>
+                    </div>
+                    <button class="btn" style="margin-top: 15px;" onclick="startChapterPractice('bio_ch3')"><i class="fa-solid fa-play"></i> Practice Now</button>
+                </div>
+                
+                <div class="card" style="border-left: 4px solid var(--biology-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                        <h3>4. Human Health and Diseases</h3>
+                        <span class="tag b">Class 12</span>
+                    </div>
+                    <button class="btn" style="margin-top: 15px;" onclick="startChapterPractice('bio_ch4')"><i class="fa-solid fa-play"></i> Practice Now</button>
                 </div>
             </div>
         </div>
@@ -254,7 +327,8 @@
                 <button class="btn" onclick="closeTimerPopup()" style="width: 100%; background: #ef4444; color: #fff; font-size: 16px;">Stop Alarm</button>
             </div>
         </div>
-      <!-- ==========================================
+
+        <!-- ==========================================
              TAB 3: MOCK TEST ENGINE
              ========================================== -->
         <div id="tests-tab" class="tab-content" style="display: none; grid-template-columns: 1fr;">
@@ -332,8 +406,8 @@
                 <button class="btn" style="margin-top: 20px;">Open Viewer</button>
             </div>
         </div>
-    </div>
-           <!-- ==========================================
+
+        <!-- ==========================================
              TAB 5: SETTINGS
              ========================================== -->
         <div id="settings-tab" class="tab-content" style="display: none; grid-template-columns: 1fr;">
@@ -351,6 +425,7 @@
                 </div>
             </div>
         </div>
+    </div> <!-- CONTAINER ENDS HERE -->
 
     <footer>
         <p>&copy; NEET Ace Portal | JAY SHRI RAM &#128681;</p>
@@ -394,7 +469,43 @@
         }
 
         /* ==========================================
-           2. JAVASCRIPT: DASHBOARD (Countdown, Streak, Goals)
+           2. JAVASCRIPT: CHAPTER-WISE PRACTICE (NEW LOGIC)
+           ========================================== */
+        
+        // डैशबोर्ड से बायोलॉजी बटन दबाने पर
+        function openSubject(subject) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+                tab.classList.remove('active');
+            });
+            const chapterScreen = document.getElementById('chapter-list-screen');
+            if (chapterScreen) {
+                chapterScreen.style.display = 'block';
+                setTimeout(() => chapterScreen.classList.add('active'), 10);
+            } else {
+                alert("Error: Chapter screen not found!");
+            }
+        }
+   // चैप्टर लिस्ट से वापस डैशबोर्ड जाने पर
+        function backToDashboard() {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.style.display = 'none';
+                tab.classList.remove('active');
+            });
+            const dashboard = document.getElementById('dashboard-tab');
+            dashboard.style.display = 'grid'; 
+            setTimeout(() => dashboard.classList.add('active'), 10);
+        }
+
+        // प्रैक्टिस शुरू करने पर (टेस्ट इंजन इस्तेमाल होगा)
+        function startChapterPractice(chapterId) {
+            document.getElementById('chapter-list-screen').style.display = 'none';
+            startMockTest(chapterId); 
+        }
+
+
+        /* ==========================================
+           3. JAVASCRIPT: DASHBOARD (Countdown, Streak, Goals)
            ========================================== */
         // NEET 2027 Countdown
         const countDownDate = new Date("May 2, 2027 14:00:00").getTime();
@@ -408,16 +519,14 @@
             document.getElementById("cd-seconds").innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
         }, 1000);
 
-        // Daily Strike & Goals Loader (Debugged - Single Function)
+        // Daily Strike & Goals Loader
         const goalList = document.getElementById('goal-list');
         const defaultGoals = `<div class="checklist-item"><div class="check-left"><input type="checkbox" onchange="toggleStrike(this)"><span class="task-text" contenteditable="true">Read NCERT Biology</span></div><button class="delete-btn" onclick="deleteGoal(this)"><i class="fa-solid fa-trash"></i></button></div>`;
         
         window.addEventListener('load', () => {
-            // Load Goals
             const savedData = localStorage.getItem('neet_goals_data');
             goalList.innerHTML = (savedData && savedData.trim() !== '') ? savedData : defaultGoals;
             
-            // Daily Streak Logic
             const today = new Date().toDateString();
             let lastLoginDate = localStorage.getItem('neet_last_login_date');
             let currentStreak = parseInt(localStorage.getItem('neet_streak_count')) || 0;
@@ -431,7 +540,8 @@
             }
             document.getElementById('streak-counter').innerText = currentStreak;
         });
-      // Goal Actions
+
+        // Goal Actions
         function saveGoals() {
             goalList.querySelectorAll('input[type="checkbox"]').forEach(cb => { cb.checked ? cb.setAttribute('checked', 'checked') : cb.removeAttribute('checked'); });
             localStorage.setItem('neet_goals_data', goalList.innerHTML);
@@ -448,7 +558,7 @@
         goalList.addEventListener('input', e => { if (e.target.classList.contains('task-text')) saveGoals(); });
 
         /* ==========================================
-           3. JAVASCRIPT: FOCUS HUB (Background Timer)
+           4. JAVASCRIPT: FOCUS HUB (Background Timer)
            ========================================== */
         let bgTimerInterval;
         let targetTimestamp = 0;
@@ -457,7 +567,6 @@
             let mins = parseInt(document.getElementById('bg-timer-input').value);
             if (isNaN(mins) || mins <= 0) { alert("Please enter valid minutes (e.g. 50)!"); return; }
 
-            // Audio Unlock Trick (for mobile browsers)
             let bell = document.getElementById('timer-bell');
             bell.play().catch(e => console.log("Unlock Wait", e));
             bell.pause(); bell.currentTime = 0;
@@ -496,10 +605,13 @@
             let bell = document.getElementById('timer-bell');
             bell.pause(); bell.currentTime = 0; 
             document.getElementById('timer-popup').style.display = 'none';
-        }
+      }
 
-        /* ==========================================
-           4. JAVASCRIPT: MOCK TEST ENGINE
+
+
+
+       /* ==========================================
+           5. JAVASCRIPT: MOCK TEST ENGINE
            ========================================== */
         let mockQuestions = [];
         let userResponses = []; 
@@ -522,7 +634,7 @@
                 buildPallet();
                 loadMockQuestion(0);
                 
-                let time = mockQuestions.length * 1.8 * 60; // Auto calculate time (approx)
+                let time = mockQuestions.length * 1.8 * 60; 
                 clearInterval(mockTimerInterval); 
                 mockTimerInterval = setInterval(() => {
                     time--;
@@ -589,17 +701,16 @@
             let analysisDiv = document.createElement('div'); analysisDiv.id = 'detailed-analysis'; analysisDiv.innerHTML = reviewHTML;
             document.getElementById('test-result').insertBefore(analysisDiv, document.getElementById('test-result').querySelector('button'));
         }
-              /* ==========================================
-           5. JAVASCRIPT: SETTINGS & THEME
+
+        /* ==========================================
+           6. JAVASCRIPT: SETTINGS & THEME
            ========================================== */
         function toggleTheme() {
             const body = document.body;
             const btn = document.getElementById('theme-toggle-btn');
             
-            // थीम बदलें
             body.classList.toggle('light-mode');
             
-            // बटन का रूप और मेमोरी सेव करें
             if (body.classList.contains('light-mode')) {
                 localStorage.setItem('neet_theme', 'light');
                 btn.innerHTML = '<i class="fa-solid fa-moon"></i> Dark Mode';
@@ -613,7 +724,6 @@
             }
         }
 
-        // पेज रीफ्रेश होने पर पुरानी चुनी हुई थीम वापस लाएँ
         window.addEventListener('load', () => {
             if (localStorage.getItem('neet_theme') === 'light') {
                 document.body.classList.add('light-mode');
@@ -629,3 +739,4 @@
     </script>
 </body>
 </html>
+
